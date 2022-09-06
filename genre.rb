@@ -13,7 +13,7 @@ class Genre < Item
   end
 
   def add_item(item)
-    @items.include?(item) ||  @items << item
+    @items.include?(item) || (@items << item)
     item.add_genre(self)
   end
 end

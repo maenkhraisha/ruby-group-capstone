@@ -10,7 +10,6 @@ class MusicAlbum < Item
   def can_be_archived?
     super && @on_spotify ? true : false
   end
-
 end
 
 # my_album = MusicAlbum.new(false, "2011-06-04")
