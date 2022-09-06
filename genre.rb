@@ -14,6 +14,8 @@ class Genre < Item
 
   def add_item(item)
     @items.include?(item) || (@items << item)
+    item.genre = @name
     item.add_genre(self)
+    p @items
   end
 end

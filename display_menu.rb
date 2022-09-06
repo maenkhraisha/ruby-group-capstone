@@ -1,6 +1,7 @@
 require_relative 'app'
+
 class Menu
-  @app = App.new
+  App = App.new
   def display_menu
     puts "\nWelcome to your catalog!"
     puts 'Please choose from the following tasks by entering a number'
@@ -25,11 +26,11 @@ class Menu
     choice = gets.chomp.to_i
     case choice
     when 1
-      @app.list_books
+      App.list_books
     when 2
-      @app.list_music
+      App.list_music
     when 3
-      @app.list_games
+      App.list_games
     when 4
       display_second_list
     when 5
@@ -48,11 +49,11 @@ class Menu
     choice = gets.chomp.to_i
     case choice
     when 1
-      @app.list_label
+      App.list_label
     when 2
-      @app.list_genre
+      App.list_genre
     when 3
-      @app.list_authors
+      App.list_authors
     when 4
       display_first_list
     when 5
@@ -70,11 +71,11 @@ class Menu
     choice = gets.chomp.to_i
     case choice
     when 1
-      @app.add_book
+      App.add_book
     when 2
-      @app.add_album
+      App.add_album
     when 3
-      @app.add_game
+      App.add_game
     when 4
       display_menu
     when 5
