@@ -1,13 +1,13 @@
 require 'date'
 
 class Item
-  def initializer(id = Random.rand(1...1000))
-    @id = id
-    @genre = nil
-    @author = nil
-    @label = nil
-    @publish_date = nil
-    @archived = false
+  def initializer(genre, author, label, publish_date, archived)
+    @id = Random.rand(1...1000)
+    @genre = genre
+    @author = author
+    @label = label
+    @publish_date = publish_date
+    @archived = archived
   end
 
   def can_be_archived?
