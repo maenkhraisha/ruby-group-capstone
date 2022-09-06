@@ -7,5 +7,9 @@ class book < item
     end
 
     def can_be_archived?
+        if(super.can_be_archived? || cover_state == 'bad')
+            return true
+        else 
+            return false
     end
 end
