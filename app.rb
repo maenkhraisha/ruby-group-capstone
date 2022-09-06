@@ -1,7 +1,7 @@
 class App
   attr_accessor :book_list, :label_list, :music_list, :genre_list, :games_list, :author_list
 
-  def initializer()
+  def initialize()
     @book_list = []
     @label_list = []
     @music_list = []

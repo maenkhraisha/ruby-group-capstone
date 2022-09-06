@@ -1,6 +1,8 @@
 require 'date'
 
 class Item
+  attr_reader :id, :genre, :publish_date, :archived
+
   def initializer(genre, author, label, publish_date, archived)
     @id = Random.rand(1...1000)
     @genre = genre
@@ -16,6 +18,13 @@ class Item
 
   def move_to_archive
     @archived = true if can_be_archived?
+  end
+
+  def add_genre(genre)
+    genre.is_a(Genre) && @genre.nil? && (
+      @genre = genre
+      genre.add_item(self)
+    )
   end
   private :can_be_archived?
 end

@@ -1,5 +1,4 @@
 require_relative 'app'
-
 class Menu
   @app = App.new
   def display_menu
