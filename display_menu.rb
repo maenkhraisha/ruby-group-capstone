@@ -1,12 +1,10 @@
 require_relative 'app'
 
-
 class Menu
-
   @app = App.new
   def display_menu
     puts "\nWelcome to your catalog!"
-    puts "Please choose from the following tasks by entering a number"
+    puts 'Please choose from the following tasks by entering a number'
     puts "1 - To list items\n2 - To add items\n3 - To exit "
     choice = gets.chomp.to_i
     case choice
@@ -20,10 +18,11 @@ class Menu
       puts 'Invalid selection'
     end
   end
-  
+
   def display_first_list
     puts "\nPlease choose from the following tasks by entering a number"
-    puts "1 - To list all books\n2 - To list all music albums\n3 - To list all games\n4 - For next listings\n5 - Back to main menu\n6 - Exit "
+    puts "1 - To list all books\n2 - To list all music albums\n3 - To list all games
+4 - For next listings\n5 - Back to main menu\n6 - Exit "
     choice = gets.chomp.to_i
     case choice
     when 1
@@ -39,13 +38,14 @@ class Menu
     when 6
       exit_app
     else
-      puts "Invalid selection"
+      puts 'Invalid selection'
     end
   end
-  
+
   def display_second_list
     puts "\nPlease choose from the following tasks by entering a number"
-    puts "1 - To list all labels\n2 - To list all genres\n3 - To list all authors\n4 - previous\n5 - Back to main menu\n6 - Exit"
+    puts "1 - To list all labels\n2 - To list all genres\n3 - To list all authors\n4 - previous
+5 - Back to main menu\n6 - Exit"
     choice = gets.chomp.to_i
     case choice
     when 1
@@ -61,10 +61,10 @@ class Menu
     when 6
       exit_app
     else
-      puts "Invalid selection"
+      puts 'Invalid selection'
     end
   end
-  
+
   def add_item
     puts "\nPlease choose from the following tasks by entering a number"
     puts "1 - To add a book\n2 - To add a music album\n3 - To add a game\n4 - Back to main menu\n5 - Exit"
@@ -81,14 +81,12 @@ class Menu
     when 5
       exit_app
     else
-      puts "Invalid selection"
+      puts 'Invalid selection'
     end
   end
-  
+
   def exit_app
-    puts "Thank you for using this app!"
+    puts 'Thank you for using this app!'
     exit
   end
-  
 end
-
