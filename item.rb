@@ -10,7 +10,6 @@ class Item
     @label = label
     @publish_date = publish_date
     @archived = archived
-
   end
 
   def can_be_archived?
