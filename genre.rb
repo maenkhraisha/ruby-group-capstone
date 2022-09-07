@@ -1,21 +1,18 @@
 require_relative 'item'
 
-class Genre < Item
-  attr_accessor :name, :items
-  attr_reader :id, :publish_date
+class Genre
+  attr_accessor :name
+  attr_reader :id, :items
 
   def initialize(name)
-    super()
     @items = []
-    @id = id
+    @id = Random.rand(1..1000)
     @name = name
-    @publish_date = publish_date
   end
 
   def add_item(item)
-    @items.include?(item) || (@items << item)
-    item.genre = @name
-    item.add_genre(self)
+    @items << item
+    item.add_genre = self
     p @items
   end
 end

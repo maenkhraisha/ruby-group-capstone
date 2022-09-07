@@ -22,7 +22,7 @@ class Menu
   def display_first_list
     puts "\nPlease choose from the following tasks by entering a number"
     puts "1 - To list all books\n2 - To list all music albums\n3 - To list all games
-4 - For next listings\n5 - Back to main menu\n6 - Exit "
+4 - Next\n5 - Back to main menu\n6 - Exit "
     choice = gets.chomp.to_i
     case choice
     when 1
@@ -44,7 +44,7 @@ class Menu
 
   def display_second_list
     puts "\nPlease choose from the following tasks by entering a number"
-    puts "1 - To list all labels\n2 - To list all genres\n3 - To list all authors\n4 - previous
+    puts "1 - To list all labels\n2 - To list all genres\n3 - To list all authors\n4 - Previous menu
 5 - Back to main menu\n6 - Exit"
     choice = gets.chomp.to_i
     case choice
