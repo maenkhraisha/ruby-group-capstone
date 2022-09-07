@@ -18,13 +18,17 @@ class App
 
   def list_books; end
 
-  def list_music; end
+  def list_music
+    list_musics
+  end
 
   def list_games; end
 
   def list_label; end
 
-  def list_genre; end
+  def list_genre
+    list_genres
+  end
 
   def list_authors; end
 
