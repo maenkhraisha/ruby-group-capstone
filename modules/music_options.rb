@@ -68,7 +68,6 @@ module Music
 
   def list_musics
     puts 'List of all albums'
-    p @music_list
     @music_list.each_with_index do |album, index|
       puts "#{index + 1} ID #{album.id} | Published date - #{album.publish_date} | On spotify? #{album.on_spotify == true ? 'Yes' : 'No'} | Genre - #{album.genre.name}"
     end 

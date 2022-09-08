@@ -43,6 +43,7 @@ module Music_files
     else
       []
     end   
+    @music_list
   end
 
   def load_genre
