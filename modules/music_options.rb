@@ -36,6 +36,7 @@ module Music
     if @genre_list.length <= 0
       puts 'The genre list is empty, please add to begin!'
     else
+      puts 'List of all available genre'
       @genre_list.each_with_index do |genre, index|
         puts " #{index + 1}: #{genre} "
       end
@@ -69,7 +70,9 @@ module Music
   def list_musics
     puts 'List of all albums'
     @music_list.each_with_index do |album, index|
-      puts "#{index + 1} ID #{album.id} | Published date - #{album.publish_date} | On spotify? #{album.on_spotify == true ? 'Yes' : 'No'} | Genre - #{album.genre.name}"
+      # rubocop:disable Layout/LineLength
+      puts "#{index + 1} ID #{album.id} | Published date - #{album.publish_date} | On spotify? #{album.on_spotify ? 'Yes' : 'No'} | Genre - #{album.genre.name}"
+      # rubocop:enable Layout/LineLength
     end
   end
 end
