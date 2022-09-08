@@ -1,8 +1,11 @@
-class Label
+require './item'
+
+class Label < Item
   attr_accessor :title, :color
   attr_reader :items
 
   def initialize(title, color)
+    super()
     @id = Random.rand(1..10_000)
     @title = title
     @color = color
@@ -10,7 +13,7 @@ class Label
   end
 
   def add_item(item)
-    item.label = self
-    @item.push(item)
+    @items.include?(item) || (@items << item)
+    item.add_label(self)
   end
 end
