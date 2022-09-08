@@ -6,7 +6,7 @@ require_relative './modules/save_musicalbums'
 
 class App
   include Music
-  include Music_files
+  include MusicFiles
   attr_accessor :book_list, :label_list, :music_list, :genre_list, :games_list, :author_list
 
   def initialize

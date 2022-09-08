@@ -1,11 +1,21 @@
 [
   {
-    "id" : 646,
+    "id" : 68,
     "publish_date" : "2010-02-28",
     "archived" : true,
     "on_spotify" : true,
     "genre" : {
-      "id" : 789,
+      "id" : 88,
+      "genre" : "pop"
+    }
+  },
+  {
+    "id" : 44,
+    "publish_date" : "2013-03-04",
+    "archived" : false,
+    "on_spotify" : true,
+    "genre" : {
+      "id" : 211,
       "genre" : "pop"
     }
   }

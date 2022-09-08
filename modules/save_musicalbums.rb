@@ -1,20 +1,20 @@
 require 'json'
 
-module Music_files
+module MusicFiles
   def save_music
     music_array = []
     @music_list.each do |album|
-      music_array << 
-      {
-        id: album.id,
-        publish_date: album.publish_date,
-        archived: album.archived,
-        on_spotify: album.on_spotify,
-        genre: {
-          id: album.genre.id,
-          genre: album.genre.name
-        },
-      }
+      music_array <<
+        {
+          id: album.id,
+          publish_date: album.publish_date,
+          archived: album.archived,
+          on_spotify: album.on_spotify,
+          genre: {
+            id: album.genre.id,
+            genre: album.genre.name
+          }
+        }
     end
     write_json(music_array, './storageFiles/musicAlbum.json')
   end
@@ -30,35 +30,35 @@ module Music_files
   def load_music
     @music_list = []
     music_file = './storageFiles/musicAlbum.json'
-    unless File.empty?(music_file)
+    if File.empty?(music_file)
+      []
+    else
       file = File.read(music_file)
       JSON
         .parse(file)
         .map do |element|
-          new_album = MusicAlbum.new(element['on_spotify'], element['publish_date'])
-          @music_list << new_album
-          music_genre = Genre.new(element['genre']['genre'])   
-          music_genre.add_item(new_album)
+        new_album = MusicAlbum.new(element['on_spotify'], element['publish_date'])
+        @music_list << new_album
+        music_genre = Genre.new(element['genre']['genre'])
+        music_genre.add_item(new_album)
       end
-    else
-      []
-    end   
+    end
     @music_list
   end
 
   def load_genre
     @genre_list = []
     genre_file = './storageFiles/genre.json'
-    unless File.empty?(genre_file)
+    if File.empty?(genre_file)
+      []
+    else
       file = File.read(genre_file)
       JSON
         .parse(file)
         .each do |element|
           @genre_list << element
         end
-      else
-        []
-      end
+    end
   end
 
   def write_json(array, filename)
