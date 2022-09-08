@@ -1,4 +1,7 @@
+require_relative 'save_musicalbums'
+
 module Music
+  include Music_files
   def add_albums
     puts 'Album on spotify? [y/n]: '
     response = gets.chomp
@@ -7,10 +10,8 @@ module Music
     publish_date = gets.chomp
     @new_album = MusicAlbum.new(on_spotify, publish_date)
     @music_list << @new_album
-    create_genre
+    create_genre    
     puts 'Music added successfully'
-    p @genre_list
-    main
   end
 
   def create_genres    
@@ -22,6 +23,7 @@ module Music
         reply = gets.chomp.to_i
         music_genre = Genre.new(@genre_list[reply-1])
         music_genre.add_item(@new_album)
+        save_music
       else
         new_genre
       end     
@@ -46,6 +48,8 @@ module Music
     @genre_list.push(genre) unless @genre_list.include?(genre)
     music_genre = Genre.new(genre)
     music_genre.add_item(@new_album)
+    save_music
+    save_genre
   end
 
   def genre_options
@@ -64,6 +68,7 @@ module Music
 
   def list_musics
     puts 'List of all albums'
+    p @music_list
     @music_list.each_with_index do |album, index|
       puts "#{index + 1} ID #{album.id} | Published date - #{album.publish_date} | On spotify? #{album.on_spotify == true ? 'Yes' : 'No'} | Genre - #{album.genre.name}"
     end 

@@ -2,16 +2,18 @@ require_relative 'musicalbum'
 require_relative 'genre'
 require 'date'
 require_relative 'modules/music_options'
+require_relative './modules/save_musicalbums'
 
 class App
   include Music
+  include Music_files
   attr_accessor :book_list, :label_list, :music_list, :genre_list, :games_list, :author_list
 
-  def initialize()
+  def initialize
     @book_list = []
     @label_list = []
-    @music_list = []
-    @genre_list = []
+    @music_list = load_music
+    @genre_list = load_genre
     @games_list = []
     @author_list = []
   end

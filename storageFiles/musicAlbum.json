@@ -1,0 +1,12 @@
+[
+  {
+    "id" : 646,
+    "publish_date" : "2010-02-28",
+    "archived" : true,
+    "on_spotify" : true,
+    "genre" : {
+      "id" : 789,
+      "genre" : "pop"
+    }
+  }
+]
