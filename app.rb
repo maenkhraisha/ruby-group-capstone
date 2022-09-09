@@ -7,7 +7,6 @@ require_relative 'label'
 require 'date'
 require_relative 'modules/music_options'
 require_relative 'modules/game_options'
-require_relative './modules/save_musicalbums'
 require_relative 'modules/json_games'
 require_relative './modules/json_storage'
 

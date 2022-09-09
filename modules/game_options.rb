@@ -24,7 +24,6 @@ module Games
     when 2
       author = add_new_author
       @author_list << author.add_item(@new_game)
-      p @author_list
     else
       puts 'Invalid option'
     end
