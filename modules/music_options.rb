@@ -64,10 +64,10 @@ module Music
   end
 
   def list_labels
-    if @label_list.length.positive?
-      @label_list.each_with_index do |label, index|
-        puts "#{index+1}) #{label.id}: Title: #{label.title} Color :#{label.color} "
-      end
+    return unless @label_list.length.positive?
+
+    @label_list.each_with_index do |label, index|
+      puts "#{index + 1}) #{label.id}: Title: #{label.title} Color :#{label.color} "
     end
   end
 
