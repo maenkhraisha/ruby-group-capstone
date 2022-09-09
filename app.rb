@@ -7,12 +7,15 @@ require_relative 'label'
 require 'date'
 require_relative 'modules/music_options'
 require_relative 'modules/game_options'
+require_relative './modules/save_musicalbums'
+require_relative 'modules/json_games'
 require_relative './modules/json_storage'
 
 class App
   include Music
   include MusicFiles
   include Games
+  include GameFiles
   attr_accessor :book_list, :label_list, :music_list, :genre_list, :games_list, :author_list
 
   def initialize
@@ -21,7 +24,7 @@ class App
     @music_list = load_music
     @genre_list = load_genre
     @games_list = []
-    @author_list = []
+    @author_list = load_authors
   end
 
   def list_book

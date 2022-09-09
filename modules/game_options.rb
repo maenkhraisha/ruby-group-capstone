@@ -1,3 +1,5 @@
+require_relative 'json_games'
+
 module Games
   def add_games
     print 'Enter the name of the game: '
@@ -8,6 +10,7 @@ module Games
     publish_date = gets.chomp
     @new_game = Game.new(publish_date, multiplayer, last_played_at)
     create_author
+    save_authors
     puts 'Game added successfully!'
   end
 
