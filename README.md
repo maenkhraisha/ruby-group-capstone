@@ -14,6 +14,9 @@
 
 ## Getting Started
 To get a local copy of the program running, follow these simple steps
+## Demo
+Here is the [link](https://drive.google.com/file/d/1_HW8dCkagfmnnDbKFBlA8mGwrOu9m4Gw/view?usp=sharing
+) to our video walk through.
 
 ### Prerequisites
 - IDE, preferably Visual Studio Code
