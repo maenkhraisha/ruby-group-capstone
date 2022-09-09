@@ -1,5 +1,5 @@
 require 'json'
-require_relative 'save_musicalbums'
+require_relative 'json_storage'
 
 module GameFiles
   def save_authors

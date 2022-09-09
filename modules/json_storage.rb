@@ -3,7 +3,6 @@ require 'json'
 module MusicFiles
   def save_book
     book_array = []
-    p @book_list
     @book_list.each do |book|
       book_array <<
         {
