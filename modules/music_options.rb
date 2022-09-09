@@ -11,7 +11,7 @@ module Music
     @new_album = MusicAlbum.new(on_spotify, publish_date)
     @music_list << @new_album
     create_genre
-    puts 'Music added successfully'
+    puts 'Music added successfully!'
   end
 
   def create_genres
