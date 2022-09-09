@@ -2,6 +2,21 @@ require_relative 'json_storage'
 
 module Music
   include MusicFiles
+  def add_books
+    puts 'Book publish date: '
+    publish_date = gets.chomp    
+    puts 'Book publisher: '
+    publisher = gets.chomp
+    puts 'Cover status (good/bad): '
+    cover_state = gets.chomp
+    
+    @new_book = Book.new(publish_date,publisher,cover_state)
+    @book_list << @new_book
+
+    save_book
+    puts 'Book added successfully!'
+  end
+
   def add_albums
     puts 'Album on spotify? [y/n]: '
     response = gets.chomp
@@ -64,6 +79,15 @@ module Music
       false
     else
       puts 'Invalid option'
+    end
+  end
+
+  def list_books
+    puts 'List of all books'
+    @book_list.each_with_index do |book, index|
+      # rubocop:disable Layout/LineLength
+      puts "#{index + 1} ID #{book.id} | Published date - #{book.publish_date} | publisher #{book.publisher} | cover state - #{book.cover_state}"
+      # rubocop:enable Layout/LineLength
     end
   end
 

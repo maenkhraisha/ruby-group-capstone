@@ -1,10 +1,12 @@
 require './item'
 
 class Book < Item
-  attr_reader :publisher, :cover_state
+  attr_accessor :publisher, :cover_state
+  attr_reader :id
 
   def initialize(date, publisher, cover_state)
     super(date)
+    @id = id
     @publisher = publisher
     @cover_state = cover_state
   end

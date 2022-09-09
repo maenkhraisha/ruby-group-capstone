@@ -1,6 +1,20 @@
 require 'json'
 
 module MusicFiles
+  def save_book
+    book_array = []
+    @book_list.each do |book|
+      book_array << 
+        {
+          id: book.id,
+          publish_date: book.publish_date,
+          publisher: book.publisher,
+          cover_state: book.cover_state,
+        }
+    end
+    write_json(book_array, './storageFiles/books.json')
+  end
+
   def save_music
     music_array = []
     @music_list.each do |album|
@@ -46,6 +60,23 @@ module MusicFiles
     @music_list
   end
 
+  def load_book
+    @book_list = []
+    book_file = './storageFiles/books.json'
+    if File.empty?(book_file)
+      []
+    else
+      file = File.read(book_file)
+      JSON
+        .parse(file)
+        .each do |element|
+          new_book = Book.new(element['publish_date'], element['publisher'], element['cover_state'])
+          @book_list<< new_book         
+        end
+    end
+    @book_list
+  end
+
   def load_genre
     @genre_list = []
     genre_file = './storageFiles/genre.json'
@@ -61,16 +92,16 @@ module MusicFiles
     end
   end
 
-  def write_json(array, filename)
+  def write_json(array, filename)    
     return unless File.exist?(filename)
-
+    
     opts = {
       array_nl: "\n",
       object_nl: "\n",
       indent: '  ',
       space_before: ' ',
       space: ' '
-    }
+    }    
     File.write(filename, JSON.generate(array, opts))
   end
 end

@@ -1,3 +1,4 @@
+require_relative 'book'
 require_relative 'musicalbum'
 require_relative 'game'
 require_relative 'genre'
@@ -14,7 +15,7 @@ class App
   attr_accessor :book_list, :label_list, :music_list, :genre_list, :games_list, :author_list
 
   def initialize
-    @book_list = []
+    @book_list = load_book
     @label_list = []
     @music_list = load_music
     @genre_list = load_genre
@@ -22,7 +23,8 @@ class App
     @author_list = []
   end
 
-  def list_books
+  def list_book
+    list_books
   end
 
   def list_music
@@ -44,7 +46,7 @@ class App
   end
 
   def add_book
-    
+    add_books
   end
 
   def add_album
