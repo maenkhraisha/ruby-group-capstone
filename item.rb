@@ -28,4 +28,18 @@ class Item
     @author = author
     author.add_item(self) unless author.items.include?(self)
   end
+
+  def add_label(label)
+    label.is_a(label) && @label.nil? && (
+      @label = label
+      label.add_item(self)
+    )
+  end
+
+  def add_author(author)
+    author.is_a(author) && @author.nil? && (
+      @author = author
+      author.add_item(self)
+    )
+  end
 end

@@ -1,16 +1,19 @@
-class Author
-  attr_accessor :items
-  attr_reader :id, :last_name, :first_name
+require './item'
+
+class Author < Item
+  attr_accessor :first_name, :last_name
+  attr_reader :id
 
   def initialize(first_name, last_name)
-    @id = Random.rand(1..1000)
+    super()
+    @id = Random.rand(1..10_000)
     @first_name = first_name
     @last_name = last_name
     @items = []
   end
 
-  def add_item(game)
-    @items << game
-    game.add_author = self
+  def add_item(item)
+    @items.include?(item) || (@items << item)
+    item.add_author(self)
   end
 end
