@@ -1,19 +1,18 @@
 require './item'
 
-class Label < Item
+class Label
   attr_accessor :title, :color
-  attr_reader :items
+  attr_reader :items, :id
 
-  def initialize(date, title, color)
-    super(date)
-    @id = Random.rand(1..10_000)
+  def initialize(title, color)
+    @id = Random.rand(1..1000)
     @title = title
     @color = color
     @items = []
   end
 
   def add_item(item)
-    @items.include?(item) || (@items << item)
-    item.add_label(self)
+    @items << item
+    item.add_label = self
   end
 end

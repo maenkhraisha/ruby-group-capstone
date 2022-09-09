@@ -1,0 +1,24 @@
+[
+  {
+    "id" : 657,
+    "publish_date" : "2001-01-01",
+    "publisher" : "maen",
+    "cover_state" : "good",
+    "label" : {
+      "id" : 298,
+      "title" : "good dad",
+      "color" : "red"
+    }
+  },
+  {
+    "id" : 93,
+    "publish_date" : "2022-05-05",
+    "publisher" : "jamal",
+    "cover_state" : "bad",
+    "label" : {
+      "id" : 298,
+      "title" : "good dad",
+      "color" : "red"
+    }
+  }
+]
