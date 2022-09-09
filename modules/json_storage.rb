@@ -3,13 +3,19 @@ require 'json'
 module MusicFiles
   def save_book
     book_array = []
-    @book_list.each do |book|
+    p @book_list
+    @book_list.each do |book|      
       book_array << 
         {
           id: book.id,
           publish_date: book.publish_date,
           publisher: book.publisher,
           cover_state: book.cover_state,
+          label: {
+            id: book.label.id,
+            title: book.label.title,
+            color: book.label.color,
+          }
         }
     end
     write_json(book_array, './storageFiles/books.json')
@@ -39,6 +45,19 @@ module MusicFiles
       genres << genre
     end
     write_json(genres, './storageFiles/genre.json')
+  end
+
+  def save_label
+    labels = []
+    @label_list.each do |label|
+      labels <<
+        {
+          id: label.id,
+          title: label.title,
+          color: label.color,          
+        }
+    end
+    write_json(labels, './storageFiles/label.json')
   end
 
   def load_music
@@ -75,6 +94,23 @@ module MusicFiles
         end
     end
     @book_list
+  end
+
+  def load_label
+    @label_list = []
+    label_file = './storageFiles/label.json'
+    if File.empty?(label_file)
+      []
+    else
+      file = File.read(label_file)
+      JSON
+        .parse(file)
+        .each do |element|
+          new_label = Label.new(element['title'],element['color'])
+          @label_list << new_label
+        end
+    end
+    @label_list
   end
 
   def load_genre

@@ -10,10 +10,9 @@ module Music
     puts 'Cover status (good/bad): '
     cover_state = gets.chomp    
     @new_book = Book.new(publish_date,publisher,cover_state)
-    @book_list << @new_book
     create_label
-    save_book
-    p @book_list
+    @book_list << @new_book
+    save_book    
     puts 'Book added successfully!'
   end
 
@@ -22,7 +21,7 @@ module Music
     title = gets.chomp
     puts 'Enter the cover color'
     color = gets.chomp
-    Label.new(title, color)
+    Label.new(title, color)    
   end
 
   def create_label
@@ -31,34 +30,35 @@ module Music
     case response
     when 1
       label = add_existing_label
-      label.add_item(@new_book)
+      label.add_item(@new_book)      
     when 2
       label = add_label
-      p label
-      @label_list << label.add_item(@new_book)
+      @label_list << label.add_item(@new_book)      
     end    
+    save_label
   end
 
  
   def add_existing_label
     puts 'Existing labels'
-    list_label
+    @label_list.each do |label|
+      puts " #{label.id}: #{label.title} "
+    end
     puts 'Select label by number'
     id = gets.chomp.to_i
     @label_list.find { |label| label.id == id}
   end
 
-  def list_label
-    if @label_list.length <=0 
-      puts 'The label list is empty, please add to begin'
-    else
-      puts 'List of all available label'
-      @label_list.each do |label|
-        puts " #{label.id}: #{label.title} "
-      end
-    end
-
-  end
+  # def list_label
+  #   if @label_list.length <= 0 
+  #     puts 'The label list is empty, please add to begin'
+  #   else
+  #     puts 'List of all available label'
+  #     @label_list.each do |label|
+  #       puts " #{label.id}: #{label.title} "
+  #     end
+  #   end
+  # end
 
   def add_albums
     puts 'Album on spotify? [y/n]: '

@@ -1,32 +1,24 @@
 [
   {
-    "id" : 936,
-    "publish_date" : "2005",
+    "id" : 657,
+    "publish_date" : "2001-01-01",
     "publisher" : "maen",
-    "cover_state" : "good"
+    "cover_state" : "good",
+    "label" : {
+      "id" : 298,
+      "title" : "good dad",
+      "color" : "red"
+    }
   },
   {
-    "id" : 918,
-    "publish_date" : "2007-07-07",
+    "id" : 93,
+    "publish_date" : "2022-05-05",
     "publisher" : "jamal",
-    "cover_state" : "good"
-  },
-  {
-    "id" : 160,
-    "publish_date" : "2020-09-09",
-    "publisher" : "Macmillian",
-    "cover_state" : "good"
-  },
-  {
-    "id" : 81,
-    "publish_date" : "2003-09-09",
-    "publisher" : "peng",
-    "cover_state" : "good"
-  },
-  {
-    "id" : 996,
-    "publish_date" : "2003-09-09",
-    "publisher" : "peng",
-    "cover_state" : "bad"
+    "cover_state" : "bad",
+    "label" : {
+      "id" : 298,
+      "title" : "good dad",
+      "color" : "red"
+    }
   }
 ]
