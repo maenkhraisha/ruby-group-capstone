@@ -90,6 +90,8 @@ module MusicFiles
         .each do |element|
           new_book = Book.new(element['publish_date'], element['publisher'], element['cover_state'])
           @book_list << new_book
+          label = Label.new(element['label']['title'],element['label']['color'])
+          label.add_item(new_book)
         end
     end
     @book_list

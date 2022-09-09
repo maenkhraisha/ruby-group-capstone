@@ -4,9 +4,9 @@ module Games
   def add_games
     print 'Enter the name of the game: '
     multiplayer = gets.chomp
-    print 'When was it last played?:  '
+    print 'When was it last played?: [yyyy-mm-dd] '
     last_played_at = gets.chomp
-    print 'When was the game published?: '
+    print 'When was the game published?: [yyyy-mm-dd]'
     publish_date = gets.chomp
     @new_game = Game.new(publish_date, multiplayer, last_played_at)
     create_author

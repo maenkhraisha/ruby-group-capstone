@@ -10,9 +10,8 @@ module Music
     puts 'Cover status (good/bad): '
     cover_state = gets.chomp
     @new_book = Book.new(publish_date, publisher, cover_state)
-    create_label
     @book_list << @new_book
-    save_book
+    create_label
     puts 'Book added successfully!'
   end
 
@@ -25,24 +24,28 @@ module Music
   end
 
   def create_label
-    puts 'Would you like to choose from an existing label[1] or add a new label[2]'
-    response = gets.chomp.to_i
-    case response
-    when 1
-      label = add_existing_label
-      label.add_item(@new_book)
-    when 2
+    if @label_list.length.positive?
+      puts 'Would you like to choose from an existing label[1] or add a new label[2]'
+      response = gets.chomp.to_i
+      case response
+      when 1
+        label = add_existing_label
+        label.add_item(@new_book)
+      when 2
+        label = add_label
+        @label_list << label.add_item(@new_book)
+      end
+    else
       label = add_label
       @label_list << label.add_item(@new_book)
     end
+    save_book
     save_label
   end
 
   def add_existing_label
     puts 'Existing labels'
-    @label_list.each do |label|
-      puts " #{label.id}: #{label.title} "
-    end
+    list_labels
     puts 'Select label by number'
     id = gets.chomp.to_i
     @label_list.find { |label| label.id == id }
@@ -58,6 +61,14 @@ module Music
     @music_list << @new_album
     create_genre
     puts 'Music added successfully!'
+  end
+
+  def list_labels
+    if @label_list.length.positive?
+      @label_list.each_with_index do |label, index|
+        puts "#{index+1}) #{label.id}: Title: #{label.title} Color :#{label.color} "
+      end
+    end
   end
 
   def create_genres

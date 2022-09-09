@@ -38,7 +38,9 @@ class App
     list_game
   end
 
-  def list_label; end
+  def list_label
+    list_labels
+  end
 
   def list_genre
     list_genres
