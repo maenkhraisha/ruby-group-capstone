@@ -8,13 +8,56 @@ module Music
     puts 'Book publisher: '
     publisher = gets.chomp
     puts 'Cover status (good/bad): '
-    cover_state = gets.chomp
-    
+    cover_state = gets.chomp    
     @new_book = Book.new(publish_date,publisher,cover_state)
     @book_list << @new_book
-
+    create_label
     save_book
+    p @book_list
     puts 'Book added successfully!'
+  end
+
+  def add_label
+    puts 'Enter the title of the book'
+    title = gets.chomp
+    puts 'Enter the cover color'
+    color = gets.chomp
+    Label.new(title, color)
+  end
+
+  def create_label
+    puts 'Would you like to choose from an existing label[1] or add a new label[2]'
+    response = gets.chomp.to_i
+    case response
+    when 1
+      label = add_existing_label
+      label.add_item(@new_book)
+    when 2
+      label = add_label
+      p label
+      @label_list << label.add_item(@new_book)
+    end    
+  end
+
+ 
+  def add_existing_label
+    puts 'Existing labels'
+    list_label
+    puts 'Select label by number'
+    id = gets.chomp.to_i
+    @label_list.find { |label| label.id == id}
+  end
+
+  def list_label
+    if @label_list.length <=0 
+      puts 'The label list is empty, please add to begin'
+    else
+      puts 'List of all available label'
+      @label_list.each do |label|
+        puts " #{label.id}: #{label.title} "
+      end
+    end
+
   end
 
   def add_albums
