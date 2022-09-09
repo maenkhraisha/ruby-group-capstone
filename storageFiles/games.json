@@ -1,0 +1,14 @@
+[
+  {
+    "first_name" : "olawale",
+    "last_name" : "olapetan",
+    "items" : [
+      {
+        "publish_date" : "2012-03-04",
+        "archived" : true,
+        "name" : "ping pong",
+        "last_played_at" : "2012-08-09"
+      }
+    ]
+  }
+]
