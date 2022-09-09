@@ -4,8 +4,8 @@ module MusicFiles
   def save_book
     book_array = []
     p @book_list
-    @book_list.each do |book|      
-      book_array << 
+    @book_list.each do |book|
+      book_array <<
         {
           id: book.id,
           publish_date: book.publish_date,
@@ -14,7 +14,7 @@ module MusicFiles
           label: {
             id: book.label.id,
             title: book.label.title,
-            color: book.label.color,
+            color: book.label.color
           }
         }
     end
@@ -54,7 +54,7 @@ module MusicFiles
         {
           id: label.id,
           title: label.title,
-          color: label.color,          
+          color: label.color
         }
     end
     write_json(labels, './storageFiles/label.json')
@@ -90,7 +90,7 @@ module MusicFiles
         .parse(file)
         .each do |element|
           new_book = Book.new(element['publish_date'], element['publisher'], element['cover_state'])
-          @book_list<< new_book         
+          @book_list << new_book
         end
     end
     @book_list
@@ -106,7 +106,7 @@ module MusicFiles
       JSON
         .parse(file)
         .each do |element|
-          new_label = Label.new(element['title'],element['color'])
+          new_label = Label.new(element['title'], element['color'])
           @label_list << new_label
         end
     end
@@ -128,16 +128,16 @@ module MusicFiles
     end
   end
 
-  def write_json(array, filename)    
+  def write_json(array, filename)
     return unless File.exist?(filename)
-    
+
     opts = {
       array_nl: "\n",
       object_nl: "\n",
       indent: '  ',
       space_before: ' ',
       space: ' '
-    }    
+    }
     File.write(filename, JSON.generate(array, opts))
   end
 end
