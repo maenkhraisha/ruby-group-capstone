@@ -5,7 +5,7 @@ require_relative 'author'
 require 'date'
 require_relative 'modules/music_options'
 require_relative 'modules/game_options'
-require_relative './modules/save_musicalbums'
+require_relative './modules/json_storage'
 
 class App
   include Music
@@ -22,7 +22,8 @@ class App
     @author_list = []
   end
 
-  def list_books; end
+  def list_books
+  end
 
   def list_music
     list_musics
@@ -42,7 +43,9 @@ class App
     list_author
   end
 
-  def add_book; end
+  def add_book
+    
+  end
 
   def add_album
     add_albums

@@ -1,4 +1,4 @@
-require_relative 'save_musicalbums'
+require_relative 'json_storage'
 
 module Music
   include MusicFiles
