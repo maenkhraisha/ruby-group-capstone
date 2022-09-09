@@ -14,7 +14,7 @@ class Game < Item
     date_now = Time.new.year
     last_play_date = Date.parse @last_play_date
     last_play_date = last_play_date.year
-    diff = date_now.to_i  - @last_play_date.to_i
-    super && diff < 2   
+    diff = date_now.to_i - last_play_date.to_i
+    super && diff < 2
   end
 end
