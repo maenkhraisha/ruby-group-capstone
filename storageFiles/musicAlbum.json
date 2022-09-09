@@ -1,0 +1,12 @@
+[
+  {
+    "id" : 22,
+    "publish_date" : "2022-05-05",
+    "archived" : false,
+    "on_spotify" : true,
+    "genre" : {
+      "id" : 534,
+      "genre" : "pop"
+    }
+  }
+]
