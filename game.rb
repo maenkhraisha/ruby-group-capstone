@@ -16,4 +16,3 @@ class Game < Item
     super && Date.today - Date.parse(@last_played_at) > 730
   end
 end
-

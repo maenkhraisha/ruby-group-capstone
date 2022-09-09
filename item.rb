@@ -28,5 +28,4 @@ class Item
     @author = author
     author.add_item(self) unless author.items.include?(self)
   end
-
 end

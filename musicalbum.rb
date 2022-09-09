@@ -16,10 +16,3 @@ class MusicAlbum < Item
     super && @on_spotify ? true : false
   end
 end
-
-# my_album = MusicAlbum.new(false, "2011-06-04")
-# my_album.genre = "pop"
-# p my_album
-# puts my_album.can_be_archived?
-# puts my_album.id
-# p my_album.is_a?(MusicAlbum)

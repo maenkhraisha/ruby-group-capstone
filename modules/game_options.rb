@@ -1,7 +1,6 @@
-
 module Games
   def add_games
-    print "Enter the name of the game: "
+    print 'Enter the name of the game: '
     multiplayer = gets.chomp
     print 'When was it last played?:  '
     last_played_at = gets.chomp
@@ -58,5 +57,4 @@ module Games
       end
     end
   end
-
 end
