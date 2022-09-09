@@ -4,8 +4,8 @@ class Label < Item
   attr_accessor :title, :color
   attr_reader :items
 
-  def initialize(title, color)
-    super()
+  def initialize(date, title, color)
+    super(date)
     @id = Random.rand(1..10_000)
     @title = title
     @color = color
