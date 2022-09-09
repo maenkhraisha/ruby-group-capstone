@@ -1,11 +1,18 @@
-require './item'
+require_relative 'item'
+require 'date'
 
-class Game < item
-  def initialize(args)
-    super(args[:genre], args[:author], args[:source], args[:label], args[:publish_date], args[:archived])
-    @multiplier = args[:multiplier]
-    @last_play_date = args[:last_play_date]
+class Game < Item
+  attr_accessor :multiplayer, :last_played_at
+  attr_reader :publish_date
+
+  def initialize(publish_date, multiplayer, last_played_at)
+    super(publish_date)
+    @multiplayer = multiplayer
+    @last_played_at = last_played_at
+    @publish_date = publish_date
   end
 
-  def can_be_archived?; end
+  def can_be_archived?()
+    super && Date.today - Date.parse(@last_played_at) > 730
+  end
 end

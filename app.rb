@@ -1,12 +1,16 @@
 require_relative 'musicalbum'
+require_relative 'game'
 require_relative 'genre'
+require_relative 'author'
 require 'date'
 require_relative 'modules/music_options'
+require_relative 'modules/game_options'
 require_relative './modules/save_musicalbums'
 
 class App
   include Music
   include MusicFiles
+  include Games
   attr_accessor :book_list, :label_list, :music_list, :genre_list, :games_list, :author_list
 
   def initialize
@@ -24,7 +28,9 @@ class App
     list_musics
   end
 
-  def list_games; end
+  def list_games
+    list_game
+  end
 
   def list_label; end
 
@@ -32,7 +38,9 @@ class App
     list_genres
   end
 
-  def list_authors; end
+  def list_authors
+    list_author
+  end
 
   def add_book; end
 
@@ -44,5 +52,7 @@ class App
     create_genres
   end
 
-  def add_game; end
+  def add_game
+    add_games
+  end
 end
