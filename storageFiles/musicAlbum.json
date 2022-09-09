@@ -1,0 +1,32 @@
+[
+  {
+    "id" : 768,
+    "publish_date" : "2010-02-28",
+    "archived" : true,
+    "on_spotify" : true,
+    "genre" : {
+      "id" : 736,
+      "genre" : "pop"
+    }
+  },
+  {
+    "id" : 866,
+    "publish_date" : "2013-03-04",
+    "archived" : false,
+    "on_spotify" : true,
+    "genre" : {
+      "id" : 468,
+      "genre" : "pop"
+    }
+  },
+  {
+    "id" : 90,
+    "publish_date" : "2010-09-08",
+    "archived" : true,
+    "on_spotify" : false,
+    "genre" : {
+      "id" : 821,
+      "genre" : "hiphop"
+    }
+  }
+]

@@ -1,10 +1,15 @@
 require_relative 'item'
 
 class MusicAlbum < Item
+  attr_accessor :on_spotify, :archived, :publish_date
+  attr_reader :id
+
   def initialize(on_spotify, publish_date)
-    super()
+    super(publish_date)
+    @id = id
     @on_spotify = on_spotify
     @publish_date = publish_date
+    @archived = can_be_archived?
   end
 
   def can_be_archived?
@@ -13,6 +18,7 @@ class MusicAlbum < Item
 end
 
 # my_album = MusicAlbum.new(false, "2011-06-04")
+# my_album.genre = "pop"
 # p my_album
 # puts my_album.can_be_archived?
 # puts my_album.id
